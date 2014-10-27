@@ -17,7 +17,7 @@ gem 'redis_syslog'
 @redis = Redis.new
 
 #Create an instance of RedisSyslog 
-@logger = RedisSyslog.new redisrb: @redis
+@logger = RedisSyslog.new @redis
 ```
 
 3. Profit
