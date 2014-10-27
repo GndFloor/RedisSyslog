@@ -17,19 +17,28 @@ gem 'redis_syslog'
 @redis = Redis.new
 
 #Create an instance of RedisSyslog 
-@logger = RedisSyslog.new redisrb: @redis, namespace: "com.fittr.periodic"
+@logger = RedisSyslog.new redisrb: @redis
 ```
 
 3. Profit
  ```ruby
 #Write a new entry
-@logger.write "This is my message"
+@logger.write "com.bar.sobriety", "Ordered a beer"
+@logger.write "com.bar.sobriety", "Hiccup!"
 
-#Get last 1 entry
-@logger.last_n_entries(1) #[{:time=>TimeClass, :message => "This is my message"]
+#Get last 2 entries
+puts @logger.tail "com.bar.sobriety", 2
+>[{:index => 1, :timestamp=>2014-1027 18:48:28 -0400, :message => "Hiccup!"},
+   {:index => 0, :timestamp=>2014-1027 18:48:28 -0400, :message => "Ordered a beer"}]
 
-#Delete all entries
-@logger.delete!
+#View all namespaces used
+puts @logger.namespaces ["com.bar.sobriety"]
+
+#Drop this namespace
+@logger.delete "com.bar.sobriety"
+
+#Delete all data including indexes
+@logger.drop_all
 ```
 
 How is it stored?
