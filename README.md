@@ -7,6 +7,7 @@ Let's get you started real quick.
 
 1. Include the gem in your Gemfile
  ```ruby
+source "https://rubygems.org"
 gem 'redis_syslog'
 ```
 
