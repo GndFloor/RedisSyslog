@@ -22,7 +22,7 @@ gem 'redis_syslog'
 
 3. Profit
  ```ruby
-#Write a new entry
+#Write a new entry to the com.bar.sobriety namespace log
 @logger.write "com.bar.sobriety", "Ordered a beer"
 @logger.write "com.bar.sobriety", "Hiccup!"
 
@@ -40,6 +40,8 @@ puts @logger.namespaces ["com.bar.sobriety"]
 #Delete all data including indexes
 @logger.drop_all
 ```
+
+There are no limits on the number of logs (namespaces) you can have.
 
 How is it stored?
 ------------
