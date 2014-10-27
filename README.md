@@ -16,6 +16,7 @@ Let's get you started real quick.
             </code>
             <br />
  3. Profit
+
 <code>#Write a new entry
             @logger.write "This is my message"<br />
             #Get last 1 entry
