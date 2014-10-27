@@ -32,7 +32,8 @@ puts @logger.tail "com.bar.sobriety", 2
    {:index => 0, :timestamp=>2014-1027 18:48:28 -0400, :message => "Ordered a beer"}]
 
 #View all namespaces used
-puts @logger.namespaces ["com.bar.sobriety"]
+puts @logger.namespaces 
+>["com.bar.sobriety"]
 
 #Drop this namespace
 @logger.delete "com.bar.sobriety"
