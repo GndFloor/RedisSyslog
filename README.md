@@ -5,9 +5,9 @@ RedisSyslog is a simple ruby gem that allows ruby to log directly to redis in a 
 Let's get you started real quick.
 -------------
 
- 1. Include the gem in your Gemfile
+1. Include the gem in your Gemfile
  
- <code>gem 'redis_syslog'</code>
+<code>gem 'redis_syslog'</code>
  2. Initalize an object.  Or as many as you'd like! Thread safety, hurray!
  <code>#Create a redis-rb intsance
             @redis = Redis.new<br />
