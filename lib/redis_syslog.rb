@@ -25,11 +25,11 @@ class RedisSyslog::RedisSyslog
     raise "n cannot be 0" unless n > 0
     #Return the last N entries of this log
     results = @redis.zrevrange _key, 0, n-1, :with_scores => true
-    results = results.map{|e| {:time => Time.at(e[1]), :message => e[0]} }
+    results = results.map{|e| {:time => Time.at(e[1]), :message => e[0][8..-1]} }
   end
 
   def write message
-    @redis.zadd _key, Time.now.to_i, message
+    @redis.zadd _key, Time.now.to_i, "#{[*('A'..'Z')].sample(8).join}#{message}"
   end
 end
 
