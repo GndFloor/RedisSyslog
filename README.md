@@ -22,10 +22,10 @@ gem 'redis_syslog'
 3. Profit
  ```ruby
 #Write a new entry
-@logger.write "This is my message"<br />
+@logger.write "This is my message"
 
 #Get last 1 entry
-@logger.last_n_entries(1) #[{:time=>TimeClass, :message => "This is my message"]<br />
+@logger.last_n_entries(1) #[{:time=>TimeClass, :message => "This is my message"]
 
 #Delete all entries
 @logger.delete!
