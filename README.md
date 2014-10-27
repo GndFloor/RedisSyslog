@@ -7,23 +7,31 @@ Let's get you started real quick.
 
 1. Include the gem in your Gemfile
  
-<code>gem 'redis_syslog'</code>
- 2. Initalize an object.  Or as many as you'd like! Thread safety, hurray!
- <code>#Create a redis-rb intsance
-            @redis = Redis.new<br />
-            #Create an instance of RedisSyslog 
-            @logger = RedisSyslog.new redisrb: @redis, namespace: "com.fittr.periodic"
-            </code>
-            <br />
- 3. Profit
+```ruby
+gem 'redis_syslog'
+```
 
-<code>#Write a new entry<br />
-            @logger.write "This is my message"<br />
-            #Get last 1 entry
-            @logger.last_n_entries(1) #[{:time=>TimeClass, :message => "This is my message"]<br />
-      #Delete all entries
-      @logger.delete!
-            </code>
+2. Initalize an object.  Or as many as you'd like! Thread safety, hurray!
+ ```ruby
+#Create a redis-rb intsance
+@redis = Redis.new
+
+#Create an instance of RedisSyslog 
+@logger = RedisSyslog.new redisrb: @redis, namespace: "com.fittr.periodic"
+```
+ 
+3. Profit
+
+```ruby
+#Write a new entry
+@logger.write "This is my message"<br />
+
+#Get last 1 entry
+@logger.last_n_entries(1) #[{:time=>TimeClass, :message => "This is my message"]<br />
+
+#Delete all entries
+@logger.delete!
+```
 
 That's it.  That's the entire API.
 ------------
