@@ -6,7 +6,7 @@ Let's get you started real quick.
 -------------
 
 1. Include the gem in your Gemfile
-```ruby
+ ```ruby
 gem 'redis_syslog'
 ```
 
@@ -18,9 +18,9 @@ gem 'redis_syslog'
 #Create an instance of RedisSyslog 
 @logger = RedisSyslog.new redisrb: @redis, namespace: "com.fittr.periodic"
 ```
- 
+
 3. Profit
-```ruby
+ ```ruby
 #Write a new entry
 @logger.write "This is my message"<br />
 
