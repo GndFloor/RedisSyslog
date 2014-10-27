@@ -32,8 +32,19 @@ gem 'redis_syslog'
 @logger.delete!
 ```
 
-That's it.  That's the entire API.
+How is it stored?
 ------------
-How is it stored?  Simple.  Each namespace uses the one key with a redis sorted set.  The key follows this format.
+Each namespace (i.e. each log name) uses the one key with a redis sorted set. `` redis_syslog://#{namespace} ``<br />
+Then, we have one index key which contains an unsorted set of keys. `` redis_syslog://namespaces ``
 
-`` redis_syslog://#{namespace} ``
+For each entry in the sorted set of some namespace, we follow the simple protocol.
+```ruby
+ #######################################################################
+ #index     - Number that should be monotonically increasing for each entry
+ #timestamp - A time in seconds from unix epoch
+ #message   - Your message
+ #######################################################################
+ 
+ @encoded_message = "#{index}\n#{timestamp}\n#{message}"
+```
+
