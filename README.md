@@ -6,7 +6,6 @@ Let's get you started real quick.
 -------------
 
 1. Include the gem in your Gemfile
- 
 ```ruby
 gem 'redis_syslog'
 ```
@@ -21,7 +20,6 @@ gem 'redis_syslog'
 ```
  
 3. Profit
-
 ```ruby
 #Write a new entry
 @logger.write "This is my message"<br />
