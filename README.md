@@ -17,7 +17,7 @@ Let's get you started real quick.
             <br />
  3. Profit
 
-<code>#Write a new entry
+<code>#Write a new entry<br />
             @logger.write "This is my message"<br />
             #Get last 1 entry
             @logger.last_n_entries(1) #[{:time=>TimeClass, :message => "This is my message"]<br />
