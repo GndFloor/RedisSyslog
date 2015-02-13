@@ -13,6 +13,9 @@ gem 'redis_syslog'
 
 2. Initalize an object.  Or as many as you'd like! Thread safety, hurray!
  ```ruby
+require 'redis'
+require 'redis_syslog'
+
 #Create a redis-rb intsance
 @redis = Redis.new
 
